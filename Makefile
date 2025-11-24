@@ -1,5 +1,5 @@
 PROG = main.exe 
-SRC = main.c
+SRC = main.c cardhandling.c inputhandling.c
 CFLAGS = -g
 LIBS = 
 all: $(PROG)
