@@ -18,4 +18,3 @@ int input_int(const char *msg) {
         printf("Invalid input. Please enter a number.\n");
     }
 }
-

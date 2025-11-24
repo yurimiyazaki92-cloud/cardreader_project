@@ -5,5 +5,6 @@
             "binaryPath": "c:\\Users\\lily1\\WS\\IOT\\cardreader\\main.exe",
             "binaryArgs": []
         }
-    ]
+    ],
+    "C_Cpp.errorSquiggles": "disabled"
 }

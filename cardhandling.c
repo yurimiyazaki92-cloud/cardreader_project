@@ -5,7 +5,7 @@
 #include <time.h>
 #include <stdbool.h>
 
-
+//date
 void get_current_date(char *buf, size_t sz) {
     time_t t = time(NULL);
     struct tm *tm_info = localtime(&t);
@@ -13,6 +13,7 @@ void get_current_date(char *buf, size_t sz) {
 }
 
 
+//card
 void add_card(AccessList *list, int card_number){
 
     int new_count = list->count + 1;
@@ -59,3 +60,36 @@ void remove_access(AccessList *list, const int *card_number) {
     if(i != -1) list->cards[i].access = false;
 }
 
+
+//file
+
+void save_to_file(const AccessList *list, const char *filename) {
+    FILE *fp = fopen(filename, "wb");
+    if (!fp) {
+        printf("Error: could not open file for writing.\n");
+        return;
+    }
+
+    fwrite(&list->count, sizeof(int), 1, fp);
+    fwrite(list->cards, sizeof(Card), list->count, fp);
+
+    fclose(fp);
+}
+
+void load_from_file(AccessList *list, const char *filename) {
+    FILE *fp = fopen(filename, "rb");
+    if (!fp) {
+        return;
+    }
+
+    int count;
+    fread(&count, sizeof(int), 1, fp);
+
+    Card *cards = malloc(sizeof(Card) * count);
+    fread(cards, sizeof(Card), count, fp);
+
+    list->cards = cards;
+    list->count = count;
+
+    fclose(fp);
+}

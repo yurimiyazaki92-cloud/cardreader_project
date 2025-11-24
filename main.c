@@ -8,6 +8,7 @@
 int main(void) {
 
     AccessList list = {NULL, 0};
+    load_from_file(&list, "cardlist.dat");
     int cardnumber;
 
     while(1){
@@ -96,6 +97,8 @@ int main(void) {
                 getchar();
                 break;
             case 4:
+                printf("Saving data...\n");
+                save_to_file(&list, "cardlist.dat");
                 printf("Exit...\n");
                 return 0;
                 break;
