@@ -29,11 +29,17 @@ The program simulates a basic access-controlled door system.
 ## Program Structure
 .
 ├── main.c // Menu and program control
+
 ├── cardhandling.c // Card logic and file handling
+
 ├── cardhandling.h
+
 ├── inputhandling.c // Safe input handling
+
 ├── inputhandling.h
+
 ├── cardlist.dat // Saved card data (generated at runtime)
+
 └── README.md
 
 
